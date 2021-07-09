@@ -48,7 +48,9 @@ def employeeApi(request,id=0):
     elif request.method=='POST':
         employee_data=JSONParser().parse(request)
         employee_serializer = EmployeeSerializer(data=employee_data)
+        print(employee_serializer.is_valid())
         if employee_serializer.is_valid():
+            print(employee_serializer)
             employee_serializer.save()
             return JsonResponse("Added Successfully!!" , safe=False)
         return JsonResponse("Failed to Add.",safe=False)
@@ -67,13 +69,10 @@ def employeeApi(request,id=0):
         employee.delete()
         return JsonResponse("Deleted Succeffully!!", safe=False)
 
+
 @csrf_exempt
 def SaveFile(request):
     file=request.FILES['myFile']
     file_name = default_storage.save(file.name,file)
 
-    return JsonResponse(file_name,safe=False)   
-
-
-
-    
+    return JsonResponse(file_name,safe=False)
