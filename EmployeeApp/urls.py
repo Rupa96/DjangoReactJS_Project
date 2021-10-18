@@ -7,11 +7,11 @@ from django.conf import settings
 
 
 urlpatterns=[
-    url(r'^department$',views.departmentApi),
-    url(r'^department/([0-9]+)$',views.departmentApi),
+    url('department/',views.departmentApi),
+ 
 
-    url(r'^employee$',views.employeeApi),
-    url(r'^employee/([0-9]+)$',views.employeeApi),
+    url('employee/',views.employeeApi),
+    u
 
-    url(r'^Employee/SaveFile$', views.SaveFile)
+    url('SaveFile/', views.SaveFile)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
