@@ -10,8 +10,8 @@ urlpatterns=[
     url('department/',views.departmentApi),
  
 
-    url('employee/',views.employeeApi),
-    u
+    url('employee/',views.employeeApi)
+    
 
     url('SaveFile/', views.SaveFile)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
